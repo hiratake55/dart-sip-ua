@@ -1049,7 +1049,7 @@ class RTCSession extends EventManager implements Owner {
         'extraHeaders': options['extraHeaders']
       });
     } else {
-      _sendReinvite(<String, dynamic>{
+      sendReinvite(<String, dynamic>{
         'eventHandlers': handlers,
         'extraHeaders': options['extraHeaders']
       });
@@ -1099,7 +1099,7 @@ class RTCSession extends EventManager implements Owner {
         'extraHeaders': options['extraHeaders']
       });
     } else {
-      _sendReinvite(<String, dynamic>{
+      sendReinvite(<String, dynamic>{
         'eventHandlers': handlers,
         'extraHeaders': options['extraHeaders']
       });
@@ -1149,7 +1149,7 @@ class RTCSession extends EventManager implements Owner {
         'extraHeaders': options['extraHeaders']
       });
     } else {
-      _sendReinvite(<String, dynamic>{
+      sendReinvite(<String, dynamic>{
         'eventHandlers': handlers,
         'rtcOfferConstraints': rtcOfferConstraints,
         'extraHeaders': options['extraHeaders']
@@ -2450,7 +2450,7 @@ class RTCSession extends EventManager implements Owner {
   /**
    * Send Re-INVITE
    */
-  void _sendReinvite([Map<String, dynamic>? options]) async {
+  void sendReinvite([Map<String, dynamic>? options]) async {
     logger.d('sendReinvite()');
 
     options = options ?? <String, dynamic>{};
@@ -2867,7 +2867,7 @@ class RTCSession extends EventManager implements Owner {
         if (_sessionTimers.refreshMethod == SipMethod.UPDATE) {
           _sendUpdate();
         } else {
-          _sendReinvite();
+          sendReinvite();
         }
       }, expires! * 500); // Half the given interval (as the RFC states).
     }
