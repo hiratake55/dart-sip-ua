@@ -146,6 +146,11 @@ class RequestSender {
             'cseq', '${_request!.cseq} ${SipMethodHelper.getName(_method)}');
         _request!.setHeader(authorization_header_name, _auth.toString());
 
+        if (response.method == SipMethod.REGISTER) {
+          _ua.set('authorization_header', authorization_header_name);
+          _ua.set('authorization_value', _auth.toString());
+        }
+
         _eventHandlers.emit(EventOnAuthenticated(request: _request));
         send();
       } else {

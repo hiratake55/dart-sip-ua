@@ -16,6 +16,8 @@ class Settings {
   String? password;
   String? realm;
   String? ha1;
+  String? authorization_header;
+  String? authorization_value;
 
   // SIP account.
   String? display_name;

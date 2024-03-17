@@ -392,6 +392,12 @@ class UA extends EventManager {
       case 'ha1':
         return _configuration.ha1;
 
+      case 'authorization_header':
+        return _configuration.authorization_header;
+
+      case 'authorization_value':
+        return _configuration.authorization_value;
+
       default:
         logger.e('get() | cannot get "$parameter" parameter in runtime');
 
@@ -428,6 +434,18 @@ class UA extends EventManager {
       case 'display_name':
         {
           _configuration.display_name = value;
+          break;
+        }
+
+      case 'authorization_header':
+        {
+          _configuration.authorization_header = value;
+          break;
+        }
+
+      case 'authorization_value':
+        {
+          _configuration.authorization_value = value;
           break;
         }
 

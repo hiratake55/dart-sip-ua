@@ -300,6 +300,13 @@ class Registrator {
 
     extraHeaders.add('Expires: 0');
 
+    final String? authorization_header = _ua.get('authorization_header');
+    final String? authorization_value = _ua.get('authorization_value');
+    if (authorization_header != null && authorization_value != null) {
+      extraHeaders.add(
+          '${utils.headerize(authorization_header)}: $authorization_value');
+    }
+
     OutgoingRequest request = OutgoingRequest(
         SipMethod.REGISTER,
         _registrar,
