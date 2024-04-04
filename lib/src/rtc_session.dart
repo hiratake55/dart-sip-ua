@@ -431,7 +431,7 @@ class RTCSession extends EventManager implements Owner {
   /**
    * Answer the call.
    */
-  void answer(Map<String, dynamic> options) async {
+  Future<void> answer(Map<String, dynamic> options) async {
     logger.d('answer()');
     dynamic request = _request;
     List<dynamic> extraHeaders = utils.cloneArray(options['extraHeaders']);
